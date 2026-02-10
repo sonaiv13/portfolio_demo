@@ -1,12 +1,12 @@
 import React from 'react'
 import { useScrollReveal } from '../../hooks/useScrollReveal.js'
 
-const ScrollReveal = (
-    children,
-    animation = 'fadeUp',
-    delay = 0,
-    duration = 700,
-) => {
+const ScrollReveal = ({
+      children,
+      animation = 'fadeUp',
+      delay = 0,
+      duration = 700,
+  }) => {
     const { ref, isVisible } = useScrollReveal({ threshold: 0.1 });
 
     const animationClasses = {

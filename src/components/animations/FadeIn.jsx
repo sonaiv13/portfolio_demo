@@ -8,8 +8,9 @@ const FadeIn = ({ children, delay=0, duration=500, threshold=0.1 }) => {
         const observer = new IntersectionObserver(
             ([entry]) => {
                 //Trigger animation when element enters viewport
-                if(entry.isIntersecting && !isVisible) setIsVisible(true); {
+                if(entry.isIntersecting && !isVisible) {
                     setIsVisible(true);
+                    observer.unobserve(elementRef.current);
                 }
             },
             {
@@ -22,16 +23,16 @@ const FadeIn = ({ children, delay=0, duration=500, threshold=0.1 }) => {
             observer.observe(elementRef.current);
         }
 
-        return () => {
-            if(elementRef.current) {
-                observer.unobserve(elementRef.current);
-            }
-        };
+        return () => observer.disconnect();
     }, [threshold, isVisible]);
 
     return <div
             ref={elementRef}
-            className={isVisible ? 'animate-fadeIn' : 'opacity-0'}
+            className={`transition-all ease-out ${
+                isVisible
+                    ? 'opacity-100 translate-y-0'
+                    : 'opacity-0 translate-y-10'
+            }`}
             style={{
                 animationDelay: isVisible ? `${delay}ms` : '0ms',
                 animationDuration: `${duration}ms`,
