@@ -109,6 +109,66 @@ const Projects = () => {
                         ))}
                     </div>
                 </FadeIn>
+
+                {/* Projects Carousel */}
+                <FadeIn delay={200}>
+                    <div className=''>
+                        <div
+                            ref={scrollContainerRef}
+                            className=''
+                        >
+                            <div className=''>
+                                {filteredProjects.map((project, index) => (
+                                    <div
+                                        key={project.id}
+                                        className=''
+                                    >
+                                        <ProjectCard project={project}/>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Navigation Arrows */}
+                        {filteredProjects.length > 3 && (
+                            <>
+                                <button
+                                    onClick={prevSlide}
+                                    disabled={currentIndex === 0}
+                                    className=''
+                                    aria-label='Previous projects'
+                                >
+                                    <ChevronLeft className=''/>
+                                </button>
+
+                                <button
+                                    onClick={nextSlide}
+                                    disabled={currentIndex >= filteredProjects.length - 3}
+                                    className=''
+                                    aria-label='Next projects'
+                                >
+                                    <ChevronRight className=''/>
+                                </button>
+                            </>
+                        )}
+
+                        {/* Navigation Dots */}
+                        {filteredProjects.length > 3 && (
+                            <div className=''>
+                                {Array.from({ length: Math.max(0, filteredProjects.length - 2) }).map((_, index) => (
+                                    <button
+                                        key={index}
+                                        onClick={() => scrollToIndex(index)}
+                                        className={`transition-all duration-300 rounded-full ${index === currentIndex 
+                                            ? 'bg-primary w-6 h-2' 
+                                            : 'bg-white/30 w-2 h-2 hover:bg-white/50'}`}
+                                        aria-label={`Go to slide ${index + 1}`}
+                                    />
+                                ))}
+                            </div>
+                        )}
+                    </div>
+                </FadeIn>
             </div>
         </section>
     )
