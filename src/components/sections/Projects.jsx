@@ -154,7 +154,7 @@ const Projects = () => {
 
                         {/* Navigation Dots */}
                         {filteredProjects.length > 3 && (
-                            <div className='felx items-center justify-center gap-2 mt-8'>
+                            <div className='flex items-center justify-center gap-2 mt-8'>
                                 {Array.from({ length: Math.max(0, filteredProjects.length - 2) }).map((_, index) => (
                                     <button
                                         key={index}
