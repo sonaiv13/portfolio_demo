@@ -80,6 +80,35 @@ const Projects = () => {
                         </p>
                     </div>
                 </FadeIn>
+
+                {/* Category Filter */}
+                <FadeIn delay={100}>
+                    <div className=''>
+                        {categories.map((category) => (
+                            <button
+                                key={category}
+                                onClick={() => handleCategoryChange(category)}
+                                className={`group relative px-6 py-3 rounded-full font-medium transition-all duration-300 ${activeCategory === category 
+                                    ? 'text-white' 
+                                    : 'text-white/60 hover:text-white'}`}
+                            >
+                                <div  className={`absolute inset-0 rounded-full transition-all duration-300 ${activeCategory === category 
+                                    ? 'bg-primary/10 opacity-100' 
+                                    : 'bg-white/5 border border-white/10 group-hover:bg-white/10'}`}
+                                />
+
+                                <div className=''>
+                                    {React.createElement(categoryIcons[category], { className: 'w-4 h-4' })}
+                                    <span className=''>{category}</span>
+                                </div>
+
+                                {activeCategory === category && (
+                                    <div className=''/>
+                                )}
+                            </button>
+                        ))}
+                    </div>
+                </FadeIn>
             </div>
         </section>
     )
