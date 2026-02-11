@@ -1,8 +1,83 @@
-import React from 'react'
+import React from 'react';
+import { ExternalLink, Github, TrendingUp } from "lucide-react";
 
-const ProjectCard = () => {
+const ProjectCard = ({project}) => {
+    const { title, description, image, technologies, metrics, demoUrl, githubUrl } = project;
+
     return (
-        <div>ProjectCard</div>
+        <div className=''>
+            <div className=''>
+                <img
+                    src={image}
+                    alt={title}
+                    className=''
+                />
+
+                <div className=''/>
+
+                <div className=''>
+                    {demoUrl && (
+                        <a
+                            href={demoUrl}
+                            target='_blank'
+                            rel='noopener noreferrer'
+                            className=''
+                            title='View Demo'
+                        >
+                            <ExternalLink className=''/>
+                        </a>
+                    )}
+                    {githubUrl && (
+                        <a
+                            href={githubUrl}
+                            target='_blank'
+                            rel='noopener noreferrer'
+                            className=''
+                            title='View Code'
+                        >
+                            <Github className=''/>
+                        </a>
+                    )}
+                </div>
+
+                <div className=''>
+                    <span className=''>
+                        {project.category}
+                    </span>
+                </div>
+            </div>
+
+            <div className=''>
+                <div>
+                    <h3 className=''>
+                        {title}
+                    </h3>
+                    <p className=''>
+                        {description}
+                    </p>
+                </div>
+
+                <div className=''>
+                    {technologies.map((tech, index) => (
+                        <span
+                            key={index}
+                            className=''
+                        >
+                            {tech}
+                        </span>
+                    ))}
+                </div>
+
+                {metrics && (
+                    <div className=''>
+                        <TrendingUp className=''/>
+                        <p className=''>
+                            {metrics}
+                        </p>
+                    </div>
+                )}
+            </div>
+        </div>
     )
 }
 export default ProjectCard
