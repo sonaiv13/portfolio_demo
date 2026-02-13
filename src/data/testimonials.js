@@ -34,13 +34,5 @@ export const testimonials = [
         image: "Image",
         quote: "Quote",
         rating: 5
-    },{
-        id: 5,
-        name: "Name 5",
-        role: "Role 5",
-        company: "Company 5",
-        image: "Image",
-        quote: "Quote",
-        rating: 5
     },
 ];
