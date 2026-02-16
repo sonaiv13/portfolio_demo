@@ -129,6 +129,73 @@ const Contact = () => {
                             </form>
                         </div>
                     </FadeIn>
+
+                    {/* Contact Info */}
+                    <FadeIn delay={200}>
+                        <div className=''>
+                            <div>
+                                <h3 className=''>
+                                    Let's Connect
+                                </h3>
+                                <p className=''>
+                                    I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Feel free to reach out!
+                                </p>
+                            </div>
+
+                            <div className=''>
+                                <div className=''>
+                                    <div className=''>
+                                        <div className=''>
+                                            <Mail className=''/>
+                                        </div>
+                                        <div className=''>
+                                            <p className=''>Email</p>
+                                            <a
+                                                href={`mailto:${PERSONAL_INFO.email}`}
+                                                className=''
+                                            >
+                                                {PERSONAL_INFO.email}
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div className=''/>
+                                </div>
+
+                                <div>
+                                    <div>
+                                        <div>
+                                            <MapPin className=''/>
+                                        </div>
+                                        <div className=''>
+                                            <p className=''>Location</p>
+                                            <p className=''>{PERSONAL_INFO.location}</p>
+                                        </div>
+                                    </div>
+                                    <div/>
+                                </div>
+                            </div>
+
+                            <div>
+                                <p className=''>Contact with me</p>
+                                <div className=''>
+                                    {Object.entries(SOCIAL_LINKS).slice(0,3).map(([platform, url]) => {
+                                        const Icon = socialIcons[platform];
+                                        return Icon ? (
+                                            <a
+                                                key={platform}
+                                                href={url}
+                                                target='_blank'
+                                                rel='noopener noreferrer'
+                                                className=''
+                                            >
+                                                <Icon className=''/>
+                                            </a>
+                                        ) : null;
+                                    })}
+                                </div>
+                            </div>
+                        </div>
+                    </FadeIn>
                 </div>
             </div>
         </section>
