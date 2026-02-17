@@ -55,6 +55,52 @@ const Footer = () => {
                             </div>
                         </div>
                     </FadeIn>
+
+                    <FadeIn delay={100}>
+                        <div>
+                            <h4 className=''>Quick Links</h4>
+                            <ul className=''>
+                                {NAV_LINKS.map((link) => (
+                                    <li key={link.id}>
+                                        <button
+                                            onClick={() => scrollToSection(link.id)}
+                                            className=''
+                                        >
+                                            <div className=''/>
+                                            <span className=''>{link.label}</span>
+                                        </button>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </FadeIn>
+
+                    <FadeIn delay={200}>
+                        <div>
+                            <h4 className=''>Connect With Me</h4>
+                            <p className=''>
+                                Let's connect and create something amazing together.
+                            </p>
+                            <div className=''>
+                                {Object.entries(SOCIAL_LINKS).map(([platform, url]) => {
+                                    const Icon = socialIcons[platform];
+                                    return Icon ? (
+                                        <a
+                                            key={platform}
+                                            href={url}
+                                            target='_blank'
+                                            rel='noopener noreferrer'
+                                            className=''
+                                            aria-label={`Connect on ${platform}`}
+                                        >
+                                            <Icon className=''/>
+                                            <div className=''/>
+                                        </a>
+                                    ) : null;
+                                })}
+                            </div>
+                        </div>
+                    </FadeIn>
                 </div>
 
                 <FadeIn delay={300}>
