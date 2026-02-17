@@ -58,16 +58,16 @@ const Footer = () => {
 
                     <FadeIn delay={100}>
                         <div>
-                            <h4 className=''>Quick Links</h4>
-                            <ul className=''>
+                            <h4 className='text-white font-semibold mb-6 text-lg'>Quick Links</h4>
+                            <ul className='space-y-3'>
                                 {NAV_LINKS.map((link) => (
                                     <li key={link.id}>
                                         <button
                                             onClick={() => scrollToSection(link.id)}
-                                            className=''
+                                            className='group flex items-center gap-2 text-white/60 hover:text-primary transition-all duration-300'
                                         >
-                                            <div className=''/>
-                                            <span className=''>{link.label}</span>
+                                            <div className='w-1.5 h-1.5 rounded-full bg-white/30 group-hover:bg-primary group-hover:w-2 transition-all duration-300'/>
+                                            <span className='text-sm'>{link.label}</span>
                                         </button>
                                     </li>
                                 ))}
@@ -77,11 +77,11 @@ const Footer = () => {
 
                     <FadeIn delay={200}>
                         <div>
-                            <h4 className=''>Connect With Me</h4>
-                            <p className=''>
+                            <h4 className='text-white font-semibold mg-6 text-lg'>Connect With Me</h4>
+                            <p className='text-white/60 text-sm mg-6 leading-relaxed'>
                                 Let's connect and create something amazing together.
                             </p>
-                            <div className=''>
+                            <div className='flex flex-wrap gap-3'>
                                 {Object.entries(SOCIAL_LINKS).map(([platform, url]) => {
                                     const Icon = socialIcons[platform];
                                     return Icon ? (
@@ -90,11 +90,11 @@ const Footer = () => {
                                             href={url}
                                             target='_blank'
                                             rel='noopener noreferrer'
-                                            className=''
+                                            className='group relative p-4 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 hover:border-primary/50 hover:scale-110 transition-all duration-300'
                                             aria-label={`Connect on ${platform}`}
                                         >
-                                            <Icon className=''/>
-                                            <div className=''/>
+                                            <Icon className='w-5 h-5 text-white/60 group-hover:text-primary transition-colors duration-300'/>
+                                            <div className='absolute inset-0 bg-linear-to-br from-primary/0 to-primary/0 group-hover:from-primary/10 group-hover:to-primary/5 rounded-xl transition-all duration-300 pointer-events-none'/>
                                         </a>
                                     ) : null;
                                 })}
