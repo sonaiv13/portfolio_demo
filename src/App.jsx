@@ -7,6 +7,7 @@ import Projects from "./components/sections/Projects.jsx";
 import Services from "./components/sections/Services.jsx";
 import Testimonials from "./components/sections/Testimonials.jsx";
 import Contact from "./components/sections/Contact.jsx";
+import Footer from "./components/layout/Footer.jsx";
 
 const App = () => {
     return (
@@ -21,6 +22,8 @@ const App = () => {
                 <Testimonials/>
                 <Contact/>
             </main>
+
+            <Footer/>
         </div>
     );
 };
